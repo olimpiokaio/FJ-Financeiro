@@ -40,5 +40,10 @@ public class Cnpj {
 		// o CNPJ armazenado no atributo cnpj
 		return 2;
 	}
+	
+	@Override
+	public String toString() {
+		return this.getValor();
+	}
 
 }

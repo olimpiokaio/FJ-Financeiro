@@ -30,9 +30,13 @@ public class Divida {
 	public void setCredor(String credor) {
 		this.credor = credor;
 	}
-	
-	public Pagamentos getPagamentos() {
-		return pagamentos;
+
+	public void registra(Pagamento pagamento) {
+		pagamentos.registra(pagamento);
+	}
+
+	public double getValorDivida() {
+		return pagamentos.getValorPago();
 	}
 
 }

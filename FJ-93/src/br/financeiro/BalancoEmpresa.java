@@ -24,7 +24,7 @@ public class BalancoEmpresa {
 			pagamento.setPagador(nomePagador);
 			pagamento.setValor(valor);
 			
-			divida.getPagamentos().registra(pagamento);
+			divida.registra(pagamento);
 		}
 	}
 
