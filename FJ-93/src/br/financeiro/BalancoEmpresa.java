@@ -3,41 +3,20 @@ package br.financeiro;
 import java.util.HashMap;
 
 public class BalancoEmpresa {
-	
-	private HashMap<String, Divida> dividas = new HashMap<String, Divida>();
-	
-	public void registraDivida(String credor, String cnpjCredor, double total) {
-		Divida divida = new Divida();
-		divida.setCredor(credor);
-		divida.getCnpjCredor().setValor(cnpjCredor);
-		divida.setTotal(total);
-		
-		dividas.put(cnpjCredor, divida);
+
+	private HashMap<Documento, Divida> dividas = new HashMap<Documento, Divida>();
+
+	public void registraDivida(Divida divida) {
+		if (divida.getDocumentoCredor() != null && divida.getDocumentoCredor().ehValido()) {
+			dividas.put(divida.getDocumentoCredor(), divida);
+		}
 	}
-	
-	public void pagaDivida(String cnpjCredor, double valor, String nomePagador, String cnpjPagador) {
-		Divida divida = dividas.get(cnpjCredor);
+
+	public void pagaDivida(Documento documentoCredor, Pagamento pagamento) {
+		Divida divida = dividas.get(documentoCredor);
 		if (divida != null) {
-			Pagamento pagamento = new Pagamento();
-			
-			pagamento.setCnpjPagador(cnpjPagador);
-			pagamento.setPagador(nomePagador);
-			pagamento.setValor(valor);
-			
 			divida.registra(pagamento);
 		}
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-

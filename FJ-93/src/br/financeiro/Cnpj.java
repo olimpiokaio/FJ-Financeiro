@@ -1,9 +1,13 @@
 package br.financeiro;
 
-public class Cnpj {
+public class Cnpj implements Documento {
 	
 	private String valor;
 	
+	public Cnpj(String valor) {
+		this.valor = valor;
+	}
+
 	public String getValor() {
 		return valor;
 	}

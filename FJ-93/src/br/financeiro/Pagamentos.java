@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class Pagamentos implements Iterable<Pagamento> {
+	
 	private double valorPago;
 	private HashSet<Pagamento> pagamentos = new HashSet<Pagamento>();
 	
@@ -15,7 +16,7 @@ public class Pagamentos implements Iterable<Pagamento> {
 	
 	public ArrayList<Pagamento> pagamentoAntesDe(Calendar data) {
 		ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
-		for (Pagamento pagamento : this.pagamentos) {
+		for (Pagamento pagamento : this) {
 			if (pagamento.getData().before(data)) {
 				pagamentosFiltrados.add(pagamento);
 			}
@@ -25,7 +26,7 @@ public class Pagamentos implements Iterable<Pagamento> {
 
 	public ArrayList<Pagamento> pagamentosComValorMaiorQue(double valorMinimo) {
 		ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
-		for (Pagamento pagamento : this.pagamentos) {
+		for (Pagamento pagamento : this) {
 			if (pagamento.getValor() > valorMinimo) {
 				pagamentosFiltrados.add(pagamento);
 			}
@@ -35,7 +36,7 @@ public class Pagamentos implements Iterable<Pagamento> {
 
 	public ArrayList<Pagamento> pagamentosDo(String cnpjPagador) {
 		ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
-		for (Pagamento pagamento : this.pagamentos) {
+		for (Pagamento pagamento : this) {
 			if (pagamento.getCnpjPagador().equals(cnpjPagador)) {
 				pagamentosFiltrados.add(pagamento);
 			}
