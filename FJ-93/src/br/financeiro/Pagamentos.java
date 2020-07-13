@@ -2,10 +2,11 @@ package br.financeiro;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
 
 public class Pagamentos {
 	private double valorPago;
-	private ArrayList<Pagamento> pagamentos = new ArrayList<>();
+	private HashSet<Pagamento> pagamentos = new HashSet<Pagamento>();
 	
 	public double getValorPago() {
 		return valorPago;
